@@ -1,11 +1,16 @@
 package com.fabx.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Partida {
@@ -19,13 +24,18 @@ public class Partida {
 	private Integer pontuacaoMandate;
 	
 	private Integer pontuacaoVisitante;
-
+	
+	@ManyToOne
+	private Campeonato campeonato = new Campeonato();
+	
+	@OneToOne
+	private Time visitante = new Time();
+	
+	@OneToOne
+	private Time mandante = new Time();
+	
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public LocalDate getData() {
@@ -50,6 +60,30 @@ public class Partida {
 
 	public void setPontuacaoVisitante(Integer pontuacaoVisitante) {
 		this.pontuacaoVisitante = pontuacaoVisitante;
+	}
+	
+	public Campeonato getCampeonato() {
+		return campeonato;
+	}
+
+	public void setCampeonato(Campeonato campeonato) {
+		this.campeonato = campeonato;
+	}
+	
+	public Time getVisitante() {
+		return visitante;
+	}
+
+	public void setVisitante(Time visitante) {
+		this.visitante = visitante;
+	}
+
+	public Time getMandante() {
+		return mandante;
+	}
+
+	public void setMandante(Time mandante) {
+		this.mandante = mandante;
 	}
 
 	@Override
