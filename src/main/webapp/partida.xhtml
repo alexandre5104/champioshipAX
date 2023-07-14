@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Partida</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Data" />
+			<h:inputText value="#{controllerPartida.partida.data}" id="data"/>
+
+			<h:outputLabel value="Pontuação mandante" />
+			<h:inputText value="#{controllerPartida.partida.pontuacaoMandate}" />
+
+			<h:outputLabel value="Pontuação visitante" />
+			<h:inputText value="#{controllerPartida.partida.pontuacaoVisitante}" />
+
+			<h:outputLabel value="Mandante" />
+			<h:selectOneMenu value="#{controllerPartida.mandante_id}">
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione" />
+				<f:selectItems var="mandante" value="#{controllerPartida.times}"
+					itemLabel="#{mandante.nome}" itemValue="#{mandante.id}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Visitante" />
+			<h:selectOneMenu value="#{controllerPartida.visitante_id}">
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione" />
+				<f:selectItems var="visitante" value="#{controllerPartida.times}"
+					itemLabel="#{visitante.nome}" itemValue="#{visitante.id}" />
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Campeonato" />
+			<h:selectOneMenu value="#{controllerPartida.campeonato_id}">
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione" />
+				<f:selectItems var="campeonato"
+					value="#{controllerPartida.campeonatos}"
+					itemLabel="#{campeonato.nome}" itemValue="#{campeonato.id}" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		
+		<h:commandButton action="#{controllerPartida.inserir()}" value="Inserir" />
+	</h:form>
+
+</h:body>
+
+</html>

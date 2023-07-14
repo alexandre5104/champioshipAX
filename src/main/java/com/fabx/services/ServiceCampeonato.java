@@ -1,5 +1,7 @@
 package com.fabx.services;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.fabx.model.Campeonato;
@@ -14,6 +16,10 @@ public class ServiceCampeonato {
 	@Transactional
 	public void inserir(Campeonato campeonato) {
 		repositoryCampeonato.inserir(campeonato);
+	}
+	
+	public List<Campeonato> getCampeonatos(){
+		return repositoryCampeonato.getCampeonatos();
 	}
 	
 }
