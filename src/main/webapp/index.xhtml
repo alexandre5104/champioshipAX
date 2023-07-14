@@ -9,6 +9,16 @@
 </h:head>
 
 <h:body>
-	<p>Nome: #{controllerTeste.nome}</p>
+	
+	<h:form>
+		<h:outputLabel value="Nome" />
+		<h:inputText value="#{controllerCampeonato.campeonato.nome}" />
+	
+		<h:outputLabel value="Ano" />
+		<h:inputText value="#{controllerCampeonato.campeonato.ano}" />
+		
+		<h:commandButton action="#{controllerCampeonato.inserir()}" value="Inserir" />
+	</h:form>
+	
 </h:body>
 </html>

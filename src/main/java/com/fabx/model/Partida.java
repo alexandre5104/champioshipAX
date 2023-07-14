@@ -1,22 +1,18 @@
 package com.fabx.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Partida {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private LocalDate data;
@@ -28,10 +24,10 @@ public class Partida {
 	@ManyToOne
 	private Campeonato campeonato = new Campeonato();
 	
-	@OneToOne
+	@ManyToOne
 	private Time visitante = new Time();
 	
-	@OneToOne
+	@ManyToOne
 	private Time mandante = new Time();
 	
 	public Integer getId() {
@@ -69,7 +65,7 @@ public class Partida {
 	public void setCampeonato(Campeonato campeonato) {
 		this.campeonato = campeonato;
 	}
-	
+
 	public Time getVisitante() {
 		return visitante;
 	}

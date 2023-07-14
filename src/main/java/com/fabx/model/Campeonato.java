@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Campeonato {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String nome;
@@ -23,7 +23,6 @@ public class Campeonato {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	public String getNome() {
 		return nome;
