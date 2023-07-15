@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Jogador</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Altura" />
+			<h:inputText value="#{controllerJogador.jogador.altura}"/>
+
+			<h:outputLabel value="Capitao" />
+			<h:inputText value="#{controllerJogador.jogador.capitao}"/>
+			
+			<h:outputLabel value="Data de Nascimento" />
+			<h:inputText value="#{controllerJogador.jogador.dataNascimento}"/>
+			
+			<h:outputLabel value="Genero" />
+			<h:inputText value="#{controllerJogador.jogador.genero}"/>
+			
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{controllerJogador.jogador.nome}"/>
+
+			<h:outputLabel value="Time" />
+			<h:selectOneMenu value="#{controllerJogador.time_id}">
+				<f:selectItem noSelectionOption="true" itemLabel="Selecione" />
+				<f:selectItems var="time"
+					value="#{controllerJogador.times}"
+					itemLabel="#{time.nome}" itemValue="#{time.id}" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		
+		<h:commandButton action="#{controllerJogador.inserir()}" value="Inserir" />
+	</h:form>
+
+</h:body>
+
+</html>
